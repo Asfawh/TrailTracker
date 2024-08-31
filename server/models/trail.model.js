@@ -4,8 +4,8 @@ const TrailSchema = new Schema(
     trailName: {
       type: String,
       required: [true, "Trail name is required!"],
-      minlength: [3, "Trail name must be at least 3 characters long!"],
-      maxlength: [20, "Trail name must be less than 20 characters long"],
+      minlength: [2, "Trail name must be at least 2 characters long!"],
+      maxlength: [50, "Trail name must be less than 50 characters long"],
     },
     length: {
       type: Number,
