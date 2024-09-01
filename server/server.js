@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dbConnect from "./config/mongoose.config.js";
 import trailRoute from "./routes/trail.routes.js";
-// import userRouter from "./routes/user-routes.js";
+import userRouter from "./routes/user-routes.js";
 
 //pulling env vars
 dotenv.config();
@@ -16,7 +16,7 @@ app.use(express.json(), cors());
 
 /* direct user api routes to user router */
 app.use("/api/trails", trailRoute);
-// app.use('/api/users', userRouter);
+app.use("/api/users", userRouter);
 
 async function serverStart() {
   try {
