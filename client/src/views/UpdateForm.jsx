@@ -139,7 +139,7 @@ const UpdateForm = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="image" className="form-label">
-              IMAGE URL(Optional):
+              Image URL(Optional):
             </label>
             <input
               type="text"

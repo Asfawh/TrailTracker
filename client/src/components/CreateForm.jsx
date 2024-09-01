@@ -130,7 +130,7 @@ const CreateForm = ({ setIsLoaded }) => {
               <p className="error">{errors.difficulty.message}</p>
             )}
             <label htmlFor="difficulty" className="form-label">
-              Type:
+              Difficulty Level:
             </label>
             <select
               name="difficulty"
@@ -209,7 +209,7 @@ const CreateForm = ({ setIsLoaded }) => {
           </div>
           <div className="mb-3">
             <label htmlFor="image" className="form-label">
-              IMAGE URL(Optional):
+              Image URL(Optional):
             </label>
             <input
               type="text"

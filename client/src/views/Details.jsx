@@ -45,27 +45,38 @@ function Details() {
         )}
       </div>
       {trail && (
-        <Card bg="light" text="dark" className="shadow">
-          <Card.Body>
-            <Figure>
-              <p className="mb-3">
-                <strong>Length:</strong> {trail.length} Miles
-              </p>
-              <p className="mb-3">
-                <strong>Elevation:</strong> {trail.elevation} feet
-              </p>
-              <p className="mb-3">
-                <strong>Location:</strong> {trail.location}
-              </p>
-              <p className="mb-3">
-                <strong> Difficulty Level:</strong> {trail.difficulty}
-              </p>
-              <p className="mb-3">
-                <strong>Description:</strong> {trail.description}
-              </p>
-            </Figure>
-          </Card.Body>
-        </Card>
+        <div className="row">
+          <Card bg="light" text="dark" className="col">
+            <img
+              src={trail.image}
+              alt={trail.trailName}
+              className="img-fluid mb-3"
+            />
+          </Card>
+          <div className="col">
+            <Card bg="light" text="dark" className="shadow">
+              <Card.Body>
+                <Figure>
+                  <p className="mb-3">
+                    <strong>Length:</strong> {trail.length} Miles
+                  </p>
+                  <p className="mb-3">
+                    <strong>Elevation:</strong> {trail.elevation} feet
+                  </p>
+                  <p className="mb-3">
+                    <strong>Location:</strong> {trail.location}
+                  </p>
+                  <p className="mb-3">
+                    <strong> Difficulty Level:</strong> {trail.difficulty}
+                  </p>
+                  <p className="mb-3">
+                    <strong>Description:</strong> {trail.description}
+                  </p>
+                </Figure>
+              </Card.Body>
+            </Card>
+          </div>
+        </div>
       )}
     </Fragment>
   );
