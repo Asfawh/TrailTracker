@@ -56,7 +56,7 @@ function AccountBar() {
       <Container>
         <div className="text-end py-2">
           <AccountModal
-            title={`${username ? username : "Login or register"}`}
+            title={`${username ? username : "Login or Register"}`}
             options={options}
             handleSelect={handleSelect}
           />

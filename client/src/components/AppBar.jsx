@@ -1,16 +1,16 @@
 /* react */
-import { useContext } from 'react';
+import { useContext } from "react";
 
 /* React Bootstrap  */
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 /* React Router Bootstrap */
-import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer } from "react-router-bootstrap";
 
 /* local */
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from "../context/AuthContext";
 
 function AppBar() {
   const { state } = useContext(AuthContext);
@@ -26,7 +26,7 @@ function AppBar() {
           <Nav className="me-auto">
             {state.user && (
               <LinkContainer to="/trails/new">
-                <Nav.Link>Create /and Display</Nav.Link>
+                <Nav.Link>Create / View</Nav.Link>
               </LinkContainer>
             )}
           </Nav>

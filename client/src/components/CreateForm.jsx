@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import axios from 'axios';
-import TRAIL_SERVICE from '../services/trail.service';
+import { useState } from "react";
+import axios from "axios";
+import TRAIL_SERVICE from "../services/trail.service";
 // import AddressAutocomplete from "./AddressAutocomplete.jsx";
 
 const initialTrail = {
-  trailName: '',
-  length: '',
-  location: '',
-  description: '',
+  trailName: "",
+  length: "",
+  location: "",
+  description: "",
   // difficulty: '',
-  image: '',
-  elevation: '',
+  image: "",
+  elevation: "",
   // isDogFriendly: '',
 };
 
-const difficulties = ['Hard', 'Moderate', 'Easy'];
+const difficulties = ["Hard", "Moderate", "Easy"];
 
 const CreateForm = ({ setIsLoaded }) => {
   const [trail, setTrail] = useState(initialTrail);
@@ -40,7 +40,7 @@ const CreateForm = ({ setIsLoaded }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!readyToSubmit()) {
-      alert('Please make a correction to the form.');
+      alert("Please make a correction to the form.");
       window.location.reload();
       return;
     }
@@ -53,8 +53,8 @@ const CreateForm = ({ setIsLoaded }) => {
 
   return (
     <div className="card shadow">
-      <h3 className="card-header text-center"> Create Form</h3>
-      <p className="text-center mt-3">Add new!</p>
+      <h3 className="card-header text-center">Create</h3>
+      <p className="text-center mt-3">Add a New Trail</p>
       <div className="card-body">
         <form onSubmit={handleSubmit}>
           {/* <div className="mb-3">
@@ -164,7 +164,7 @@ const CreateForm = ({ setIsLoaded }) => {
           </div> */}
           <div className="mb-3">
             {errors.length && <p className="error">{errors.length.message}</p>}
-            <label htmlFor="length" className="form-lable">
+            <label htmlFor="length" className="form-label">
               Length:
             </label>
             <input
@@ -222,7 +222,7 @@ const CreateForm = ({ setIsLoaded }) => {
           </div>
           <div className="text-end">
             <button type="submit" className="btn btn-primary">
-              Create!
+              Create
             </button>
           </div>
         </form>
