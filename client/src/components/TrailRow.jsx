@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import axios from 'axios';
+import axios from "axios";
 /* react */
-import { useContext } from 'react';
+import { useContext } from "react";
 
 /* local */
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from "../context/AuthContext";
 
 function TrailRow({ trail, setIsLoaded }) {
-  const baseUrl = 'http://localhost:8004/api/trails';
+  const baseUrl = "http://localhost:8004/api/trails";
   const { state } = useContext(AuthContext);
 
   // // Convert the string to a Date object
@@ -32,7 +32,7 @@ function TrailRow({ trail, setIsLoaded }) {
       <td className="align-middle d-flex gap-2">
         <Link
           to={`/trails/${trail._id}`}
-          className="btn btn-info align-middle "
+          className="btn btn-success align-middle "
         >
           Details
         </Link>

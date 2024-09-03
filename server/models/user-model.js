@@ -13,7 +13,7 @@ const userSchema = new Schema(
     {
         username: {
             type: String,
-            required: [true, 'Please ebter your username.'],
+            required: [true, 'Please enter your username.'],
             minLength: [2, 'Username must be at least two character.']
         },
         email: {
@@ -43,7 +43,7 @@ const userSchema = new Schema(
     { timestamps: true }
 );
 
-/* set enauk validation message */
+/* set user validation message */
 userSchema.plugin(mongooseUniqueValidator, {
     message: 'Email in use. Please log in.'
 });

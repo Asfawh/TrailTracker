@@ -12,7 +12,7 @@ function generateToken(id) {
     return jwt.sign({ id }, JWT_SECRET, { expiresIn: '1d'});
 }
 
-/* login erros object */
+/* login errors object */
 const errors = {
     credentials: {
         message: 'Could not log in. Please check your credentials.',

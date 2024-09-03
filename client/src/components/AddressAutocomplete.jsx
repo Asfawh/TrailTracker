@@ -9,7 +9,6 @@
 // const AddressAutocomplete = () => {
 //   const { isLoaded } = useLoadScript({
 //     // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-//     googleMapsApiKey: "AIzaSyA2GYmYT_MPPNarqglzgjUs1KdouNMXdco",
 
 //     libraries,
 //   });

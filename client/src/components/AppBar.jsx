@@ -29,7 +29,7 @@ function AppBar() {
           <Nav className="me-auto">
             {state.user && (
               <LinkContainer to="/trails/new">
-                <Nav.Link>Create /and Display</Nav.Link>
+                <Nav.Link>Create / View</Nav.Link>
               </LinkContainer>
             )}
           </Nav>

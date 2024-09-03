@@ -40,12 +40,12 @@ function MainList() {
   let subtitle = "Login or register for more.";
 
   if (user) {
-    subtitle = "Click view for more details and action!";
+    subtitle = "Click view for details on trail.";
   }
 
   return (
     <Fragment>
-      <h1 className="mb-4 text-center">Display All </h1>
+      <h1 className="mb-4 text-center">All Trails </h1>
       <h5 className="mb-4 text-center">{subtitle}</h5>
       <div className={styles.grid}>
         {trails.map((trail, i) => (
