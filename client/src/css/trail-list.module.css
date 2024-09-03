@@ -4,6 +4,12 @@
   gap: 1.5rem;
 }
 
+.img {
+  width: 400px;
+  height: 400px;
+  align-items: center;
+}
+
 @media (min-width: 48rem) {
   .grid {
     grid-template-columns: 1fr 1fr;

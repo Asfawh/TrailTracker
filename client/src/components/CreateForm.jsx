@@ -42,6 +42,7 @@ const CreateForm = ({ setIsLoaded }) => {
     if (!readyToSubmit()) {
       alert('Please make a correction to the form.');
       window.location.reload();
+
       return;
     }
 

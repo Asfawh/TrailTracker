@@ -8,6 +8,7 @@ import { AuthContext } from '../context/AuthContext';
 
 import Card from 'react-bootstrap/Card';
 import Figure from 'react-bootstrap/Figure';
+import styles from '../css/trail-list.module.css';
 
 function Details() {
   const { id } = useParams();
@@ -36,6 +37,14 @@ function Details() {
       <div className="card-footer text-end mb-3">
         {state.user && (
           <Link
+            to={`/trails/${trail._id}/edit`}
+            className="btn btn-sm btn-warning align-middle "
+          >
+            Update
+          </Link>
+        )}
+        {state.user && (
+          <Link
             to={`/trails/`}
             className="btn btn-sm btn-danger"
             onClick={() => removeTrail(trail._id)}
@@ -46,36 +55,41 @@ function Details() {
       </div>
       {trail && (
         <div className="row">
-          <Card bg="light" text="dark" className="col">
+          {/* <Card bg="light" text="dark" className="col">
             <img
+              className={styles.img}
               src={trail.image}
               alt={trail.trailName}
-              className="img-fluid mb-3"
+              // className="img-fluid mb-3"
             />
+          </Card> */}
+          <Card bg="light" text="dark" className="shadow col">
+            <Card.Body>
+              <img
+                className={styles.img}
+                src={trail.image}
+                alt={trail.trailName}
+                // className="img-fluid mb-3"
+              />
+              <Figure className="ms-5">
+                <p className="mb-3">
+                  <strong>Length:</strong> {trail.length} Miles
+                </p>
+                <p className="mb-3">
+                  <strong>Elevation:</strong> {trail.elevation} feet
+                </p>
+                <p className="mb-3">
+                  <strong>Location:</strong> {trail.location}
+                </p>
+                <p className="mb-3">
+                  <strong> Difficulty Level:</strong> {trail.difficulty}
+                </p>
+                <p className="mb-3">
+                  <strong>Description:</strong> {trail.description}
+                </p>
+              </Figure>
+            </Card.Body>
           </Card>
-          <div className="col">
-            <Card bg="light" text="dark" className="shadow">
-              <Card.Body>
-                <Figure>
-                  <p className="mb-3">
-                    <strong>Length:</strong> {trail.length} Miles
-                  </p>
-                  <p className="mb-3">
-                    <strong>Elevation:</strong> {trail.elevation} feet
-                  </p>
-                  <p className="mb-3">
-                    <strong>Location:</strong> {trail.location}
-                  </p>
-                  <p className="mb-3">
-                    <strong> Difficulty Level:</strong> {trail.difficulty}
-                  </p>
-                  <p className="mb-3">
-                    <strong>Description:</strong> {trail.description}
-                  </p>
-                </Figure>
-              </Card.Body>
-            </Card>
-          </div>
         </div>
       )}
     </Fragment>

@@ -1,17 +1,18 @@
 /* react */
-import { useContext } from "react";
+import { useContext } from 'react';
 
 /* react bootstrap */
-import Card from "react-bootstrap/Card";
-import Figure from "react-bootstrap/Figure";
+import Card from 'react-bootstrap/Card';
+import Figure from 'react-bootstrap/Figure';
+import styles from '../css/trail-list.module.css';
 
 /* react router */
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 /* local */
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from '../context/AuthContext';
 
-import LikeButton from "./LikeButton";
+import LikeButton from './LikeButton';
 
 function EachTrail({ trail, setIsCurrent }) {
   const {
@@ -20,6 +21,12 @@ function EachTrail({ trail, setIsCurrent }) {
 
   return (
     <Card bg="light" text="dark" className="shadow">
+      <img
+        // className={styles.img}
+        src={trail.image}
+        alt={trail.trailName}
+        className="img-fluid mb-3"
+      />
       <Card.Body>
         <Figure>
           <blockquote>
