@@ -5,6 +5,8 @@ import { useContext } from 'react';
 /* React Bootstrap  */
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 
 /* React Router Bootstrap */
@@ -12,8 +14,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 /* local */
 import { AuthContext } from '../context/AuthContext';
+import Search from './Search';
 
-// const { SearchBar } = Search;
+const { SearchBar } = Search;
 
 function AppBar() {
   const { state } = useContext(AuthContext);
@@ -34,16 +37,7 @@ function AppBar() {
             )}
           </Nav>
         </Navbar.Collapse>
-        {/* <ToolkitProvider keyField="id" data={products} columns={columns} search>
-          {(props) => (
-            <div>
-              <h3>Input something at below input field:</h3>
-              <SearchBar {...props.searchProps} />
-              <hr />
-              <BootstrapTable {...props.baseProps} />
-            </div>
-          )}
-        </ToolkitProvider> */}
+        {/* <Search /> */}
       </Container>
     </Navbar>
   );

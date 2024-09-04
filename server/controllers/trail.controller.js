@@ -1,4 +1,4 @@
-import Trail from "../models/trail.model.js";
+import Trail from '../models/trail.model.js';
 
 //Add a trail to the collection in our Mongo database using a POST HTTP Verb.
 async function createTrail(req, res) {
@@ -11,7 +11,7 @@ async function createTrail(req, res) {
   }
 }
 
-//Retrieve all meals from the collection.
+//Retrieve all trail from the collection.
 async function getAllTrail(req, res) {
   try {
     const allTrail = await Trail.find();
@@ -32,6 +32,26 @@ async function getOneTrail(req, res) {
     res.status(400).json(error);
   }
 }
+// Search a trail from the collection.
+async function searchTrail(req, res) {
+  try {
+    const foundTrail = await Trail.find({ trailName: req.params.query });
+    res.status(200).json(foundTrail);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ error: 'No Trail was found!' });
+  }
+}
+// async function searchTrail(req, res) {
+//   const foundTrail = await Trail.find(
+//     (trail) => trail.trailName === req.params.trailName
+//   );
+//   if (foundTrail || foundTrail.length !== 0) {
+//     res.status(200).send(foundTrail);
+//   }
+//   // console.log(error);
+//   res.status(400).send({ error: 'No Trail was found!' });
+// }
 
 //Edit a trail from the collection.
 async function updateOneTrail(req, res) {
@@ -69,4 +89,5 @@ export {
   getAllTrail,
   updateOneTrail,
   deleteOneTrail,
+  searchTrail,
 };

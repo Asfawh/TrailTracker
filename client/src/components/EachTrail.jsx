@@ -12,8 +12,6 @@ import { Link } from 'react-router-dom';
 /* local */
 import { AuthContext } from '../context/AuthContext';
 
-import LikeButton from './LikeButton';
-
 function EachTrail({ trail, setIsCurrent }) {
   const {
     state: { user },
@@ -30,9 +28,11 @@ function EachTrail({ trail, setIsCurrent }) {
       <Card.Body>
         <Figure>
           <blockquote>
-            <Card.Text>{trail.trailName}</Card.Text>
+            <Card.Text>
+              <strong>{trail.trailName}</strong>
+            </Card.Text>
             <Card.Text className="mb-0">
-              Description: {trail.description}
+              <strong>Description:</strong> {trail.description}
             </Card.Text>
           </blockquote>
           <Figure.Caption className="blockquote-footer">
@@ -46,11 +46,6 @@ function EachTrail({ trail, setIsCurrent }) {
             View
           </Link>
         </small>
-        {/* {user && user.id !== trail.creator._id && (
-          <LikeButton size="sm" trail={trail} setIsCurrent={setIsCurrent}>
-            {trail.likes.length}
-          </LikeButton>
-        )} */}
       </Card.Footer>
     </Card>
   );

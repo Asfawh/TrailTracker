@@ -1,10 +1,10 @@
-import TrailRow from "./TrailRow";
+import TrailRow from './TrailRow';
 
 function TrailsList({ trails, setIsLoaded }) {
   return (
     <div className="card shadow ">
       <h3 className="card-header text-center">All Trails</h3>
-      <p className="text-center mt-3">Trails Added by Users</p>
+      <p className="text-center mt-3">Trails added by Users</p>
       <div className="card-body">
         <table className="table table-striped">
           <thead>

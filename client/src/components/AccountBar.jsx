@@ -1,15 +1,16 @@
 /* react */
-import { useContext, useState } from "react";
+import { useContext, useState } from 'react';
 
 /* react bootstrap */
-import Container from "react-bootstrap/Container";
+import Container from 'react-bootstrap/Container';
+import Search from './Search';
 
 /* local */
-import { AuthContext } from "../context/AuthContext";
-import LoginModal from "../users/LoginModal";
-import RegisterModal from "../users/RegisterModal";
-import AccountModal from "./AccountModal";
-import useLogout from "../users/hooks/useLogout";
+import { AuthContext } from '../context/AuthContext';
+import LoginModal from '../users/LoginModal';
+import RegisterModal from '../users/RegisterModal';
+import AccountModal from './AccountModal';
+import useLogout from '../users/hooks/useLogout';
 
 function AccountBar() {
   const { state } = useContext(AuthContext);
@@ -18,50 +19,54 @@ function AccountBar() {
   const logout = useLogout();
 
   const username = state.user ? state.user.username : null;
-  const options = state.user ? ["logout"] : ["login", "register"];
+  const options = state.user ? ['logout'] : ['login', 'register'];
 
   const handleClose = (modalName) => {
     switch (modalName) {
-      case "login":
+      case 'login':
         setShowLogin(false);
         break;
-      case "register":
+      case 'register':
         setShowRegister(false);
         break;
       default:
-        console.error("Unexpected modalName");
+        console.error('Unexpected modalName');
         break;
     }
   };
 
   const handleSelect = (e) => {
     switch (e) {
-      case "login":
+      case 'login':
         setShowLogin(true);
         break;
-      case "register":
+      case 'register':
         setShowRegister(true);
         break;
-      case "logout":
+      case 'logout':
         logout();
         break;
       default:
-        console.error("Unexpected eventKey");
+        console.error('Unexpected eventKey');
         break;
     }
   };
 
   return (
-    <div className="bg-dark text-light mb-3">
+    <div className="d-flex bg-dark text-light mb-3">
       <Container>
         <div className="text-end py-2">
           <AccountModal
-            title={`${username ? username : "Login or Register"}`}
+            title={`${username ? username : 'Login or Register'}`}
             options={options}
             handleSelect={handleSelect}
           />
         </div>
+        <div className="text-center mt-3">
+          <Search />
+        </div>
       </Container>
+
       <LoginModal showLogin={showLogin} handleClose={handleClose} />
       <RegisterModal showRegister={showRegister} handleClose={handleClose} />
     </div>

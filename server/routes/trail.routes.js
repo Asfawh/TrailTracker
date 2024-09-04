@@ -5,12 +5,13 @@ import {
   getAllTrail,
   updateOneTrail,
   deleteOneTrail,
+  searchTrail,
 } from '../controllers/trail.controller.js';
 
 const router = Router();
 
 router.route('/').get(getAllTrail).post(createTrail);
-
+router.route('/search').post(searchTrail);
 router
   .route('/:id')
   .get(getOneTrail)

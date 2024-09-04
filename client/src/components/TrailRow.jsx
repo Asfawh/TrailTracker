@@ -1,25 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import axios from "axios";
+import axios from 'axios';
 /* react */
-import { useContext } from "react";
+import { useContext } from 'react';
 
 /* local */
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from '../context/AuthContext';
 
 function TrailRow({ trail, setIsLoaded }) {
-  const baseUrl = "http://localhost:8004/api/trails";
+  const baseUrl = 'http://localhost:8004/api/trails';
   const { state } = useContext(AuthContext);
-
-  // // Convert the string to a Date object
-  // const dateObject = new Date(trail.timestamp);
-
-  // // Format the date (for example: "August 30, 2024")
-  // const formattedDate = dateObject.toLocaleDateString("en-US", {
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  // });
 
   return (
     <tr>
