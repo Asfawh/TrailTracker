@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 
 /* react bootstrap */
 import Container from 'react-bootstrap/Container';
-import Search from './Search';
+// import Search from './Search';
 
 /* local */
 import { AuthContext } from '../context/AuthContext';
@@ -62,9 +62,7 @@ function AccountBar() {
             handleSelect={handleSelect}
           />
         </div>
-        <div className="text-center mt-3">
-          <Search />
-        </div>
+        <div className="text-center mt-3"></div>
       </Container>
 
       <LoginModal showLogin={showLogin} handleClose={handleClose} />

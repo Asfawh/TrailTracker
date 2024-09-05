@@ -55,14 +55,6 @@ function Details() {
       </div>
       {trail && (
         <div className="row">
-          {/* <Card bg="light" text="dark" className="col">
-            <img
-              className={styles.img}
-              src={trail.image}
-              alt={trail.trailName}
-              // className="img-fluid mb-3"
-            />
-          </Card> */}
           <Card bg="light" text="dark" className="shadow col">
             <Card.Body>
               <img

@@ -11,7 +11,8 @@ import {
 const router = Router();
 
 router.route('/').get(getAllTrail).post(createTrail);
-router.route('/search').post(searchTrail);
+
+router.route('/search').get(searchTrail);
 router
   .route('/:id')
   .get(getOneTrail)

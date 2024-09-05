@@ -32,16 +32,38 @@ async function getOneTrail(req, res) {
     res.status(400).json(error);
   }
 }
-// Search a trail from the collection.
+
+// Search a trail from the collection with substring search or wildcard matching.
 async function searchTrail(req, res) {
   try {
-    const foundTrail = await Trail.find({ trailName: req.params.query });
-    res.status(200).json(foundTrail);
+    // Create a case-insensitive regular expression based on the query parameter
+    const query = new RegExp(req.query.query, 'i'); // 'i' makes it case-insensitive
+    // Find trails where trailName matches the query as a substring
+    const foundTrail = await Trail.find({ trailName: query });
+
+    if (foundTrail.length > 0) {
+      res.status(200).json(foundTrail);
+    } else {
+      res.status(404).send({ error: 'No Trail was found!' });
+    }
   } catch (error) {
     console.log(error);
-    res.status(400).send({ error: 'No Trail was found!' });
+    res
+      .status(400)
+      .send({ error: 'Error occurred while searching for trails!' });
   }
 }
+
+// // Search a trail from the collection.
+// async function searchTrail(req, res) {
+//   try {
+//     const foundTrail = await Trail.find({ trailName: req.params.query });
+//     res.status(200).json(foundTrail);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(400).send({ error: 'No Trail was found!' });
+//   }
+// }
 // async function searchTrail(req, res) {
 //   const foundTrail = await Trail.find(
 //     (trail) => trail.trailName === req.params.trailName

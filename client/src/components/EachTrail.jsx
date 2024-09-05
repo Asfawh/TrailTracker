@@ -35,12 +35,10 @@ function EachTrail({ trail, setIsCurrent }) {
               <strong>Description:</strong> {trail.description}
             </Card.Text>
           </blockquote>
-          <Figure.Caption className="blockquote-footer">
-            {/* {trail.creator.username} */}
-          </Figure.Caption>
+          <Figure.Caption className="blockquote-footer"></Figure.Caption>
         </Figure>
       </Card.Body>
-      <Card.Footer className="d-flex justify-content-between align-items-center gap-2 bg-light">
+      <Card.Footer>
         <small>
           <Link to={`/trails/${trail._id}`} className="link-primary">
             View

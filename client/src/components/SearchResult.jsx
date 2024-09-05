@@ -1,8 +1,7 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
-import EachTrail from './EachTrail';
-import Details from '../views/Details';
+import TrailsList from './TrailsList';
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -10,6 +9,19 @@ const useQuery = () => {
 
 const SearchResults = () => {
   const query = useQuery().get('query');
+  const { trailData } = useParams();
+
+  const [trail, setTrail] = useState({});
+
+  const baseUrl = 'http://localhost:8004/api/trails/search';
+
+  useEffect(() => {
+    axios
+      .get(`${baseUrl}/${trailData}`)
+      .then((res) => setTrail(res.data))
+      .catch((err) => console.error(err));
+  }, [trailData]);
+  console.log(trail);
 
   return (
     <div>
@@ -17,8 +29,13 @@ const SearchResults = () => {
       <p>
         Showing results for: <strong>{query}</strong>
       </p>
-      {/* <EachTrail /> */}
-      <Details />
+      <p>
+        Showing results for: <strong>{query}</strong>
+      </p>
+      <TrailsList trails={query} />
+      {/* <Link to={`/trails/${trail.trailName}`} className="link-primary">
+        View
+      </Link> */}
       {/* Render your search results here */}
     </div>
   );

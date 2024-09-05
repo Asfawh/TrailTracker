@@ -1,20 +1,35 @@
 import React, { useState } from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import SearchResults from './SearchResult';
+import TRAIL_SERVICE from '../services/trail.service';
 
 const Search = () => {
+  const { trailName } = useParams();
+  const [trail, setTrail] = useState({});
+
   const [query, setQuery] = useState('');
   const [searchSubmitted, setSearchSubmitted] = useState(false);
   const navigate = useNavigate();
 
+  const baseUrl = 'http://localhost:8004/api/trails';
+
+  // const getTrail = (trailName) => {
+  //   TRAIL_SERVICE.searchTrail(trailName);
+  //   setTrail((prev) => prev.filter((trail) => trail != trailName));
+  // };
+
   const handleSearch = (e) => {
     e.preventDefault();
-    if (query) {
-      // navigate(`/search?query=${query}`);
-      setSearchSubmitted(true);
-    }
+    // if (e.target.name.value) {
+    //   TRAIL_SERVICE.searchTrail(e.target.value);
+    //   setTrail((prev) => prev.filter((trail) => trail === trailName));
+    navigate(`/trails/search`);
+    // navigate(`/search/${query}`);
+    // navigate(`/trails/search?query=${query}`)
+    setSearchSubmitted(true);
+    // }
   };
 
   return (
@@ -26,9 +41,9 @@ const Search = () => {
       <FormControl
         type="text"
         placeholder="Search by trail name"
-        className="mr-sm-2 mx-auto "
-        // style={{ width: '250px' }}
-        style={{ width: '100%' }}
+        className="mr-sm-2 "
+        style={{ width: '550px' }}
+        // style={{ width: '100%' }}
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
@@ -42,6 +57,7 @@ const Search = () => {
         </svg>
       </button>
       {searchSubmitted && <SearchResults query={query} />}
+      {/* {searchSubmitted && <Details />} */}
     </Form>
   );
 };

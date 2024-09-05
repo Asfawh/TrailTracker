@@ -1,13 +1,13 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const http = axios.create({
-  baseURL: "http://localhost:8004/api/trails",
+  baseURL: 'http://localhost:8004/api/trails',
 });
 
 const TRAIL_SERVICE = {
   createTrail: async (trailData) => {
     try {
-      const res = await http.post("/", trailData);
+      const res = await http.post('/', trailData);
       return res.data;
     } catch (err) {
       throw err;
@@ -25,16 +25,17 @@ const TRAIL_SERVICE = {
 
   getAllTrail: async () => {
     try {
-      const res = await http.get("/");
+      const res = await http.get('/');
       return res.data;
     } catch (err) {
       throw err;
     }
   },
 
-  getTrailByLocation: async () => {
+  searchTrail: async (trailData) => {
     try {
-      const res = await http.get("/location");
+      const res = await http.get(`/search/${trailData}`);
+      console.log(res);
       return res.data;
     } catch (err) {
       throw err;

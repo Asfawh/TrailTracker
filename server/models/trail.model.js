@@ -29,9 +29,6 @@ const TrailSchema = new Schema(
     image: {
       type: String,
     },
-    isDogFriendly: {
-      type: Boolean,
-    },
   },
   { timestamps: true }
 );
